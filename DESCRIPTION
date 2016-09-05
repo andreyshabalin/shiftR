@@ -1,0 +1,12 @@
+Package: fastCircularPermutations
+Type: Package
+Title: Very fast circular permutation analysis on binary outcomes
+Version: 1.0
+Date: 2016-09-05
+Author: Andrey A Shabalin
+Maintainer: Andrey A Shabalin <ashabalin@vcu.edu>
+Description: Very fast circular permutation analysis 
+    using bitwise operations on binary representation of the data.
+BugReports: https://github.com/andreyshabalin/fastCircularPermutations/issues
+URL: https://github.com/andreyshabalin/fastCircularPermutations
+License: LGPL-3
