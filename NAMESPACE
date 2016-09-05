@@ -1,0 +1,3 @@
+useDynLib(fastCircularPermutations, .registration = TRUE)
+export(
+)
