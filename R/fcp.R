@@ -28,6 +28,7 @@ prepareBinaryDataLeft = function(set) {
 	n = length(set);
 	rez = packBits( c(set, set, rep(zero, (-2*n)%%32)), type = 'integer');
 	class(rez) = "fcpLeft";
+	attr(rez, "sum") = sum(set);
 	return(rez);
 }
 
@@ -45,6 +46,7 @@ prepareBinaryDataRight = function(set) {
 		rez[[i+1]] = packBits( c(rep(zero, i), set, rep(zero, (-i-n)%%32)), type = 'integer');
 	}
 	class(rez) = "fcpRight";
+	attr(rez, "sum") = sum(set);
 	return(rez);
 }
 
