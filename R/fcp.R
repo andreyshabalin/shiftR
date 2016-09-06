@@ -47,4 +47,8 @@ prepareBinaryDataRight = function(set) {
 	class(rez) = "fcpRight";
 	return(rez);
 }
+
+singleCircularPermutation = function(left, right, offset) {
+	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "fastCircularPermutations")
+}
 	
