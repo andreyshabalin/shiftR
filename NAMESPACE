@@ -1,5 +1,8 @@
 useDynLib(fastCircularPermutations, .registration = TRUE)
 export(
 	"prepareBinaryDataLeft",
-	"prepareBinaryDataRight"
+	"prepareBinaryDataRight",
+	"circularPermutationAnalysis",
+	"singleCircularPermutation"
 )
+importFrom("stats","fisher.test")
