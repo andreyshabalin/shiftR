@@ -56,7 +56,8 @@ singleCircularPermutation = function(left, right, offset) {
 	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "fastCircularPermutations")
 }
 
-circularPermutationAnalysis = function(left, right, npermute, margin = 0.05) {
+circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, alsoDoFisher = TRUE, returnPermOverlaps = FALSE) {
+	rez = list();
 	stopifnot( class(left) == "fcpLeft" );
 	stopifnot( class(right) == "fcpRight" );
 	stopifnot( attr(left, "len") == attr(right, "len") );
@@ -64,12 +65,39 @@ circularPermutationAnalysis = function(left, right, npermute, margin = 0.05) {
 	sum2 = attr(left, "sum");
 	sum12 = singleCircularPermutation(left, right, 0);
 	len =  attr(left, "len");
+	if(alsoDoFisher) {
+		fisherMat = matrix(c(sum12,sum1-sum12,sum2-sum12,len-sum1-sum2+sum12),2,2);
+		fisherTest = fisher.test(fisherMat);
+		rez = list(fisherTest = fisherTest,
+					  fisherMat = fisherMat)
+	}
+
+	overlapsPerm = integer(npermute);
+	offsets = sample(len*(1-2*margin), size = npermute, replace = TRUE) + len*margin;
+	for( i in seq_len(npermute) ) 
+		overlapsPerm[i] = .Call("CbitSumAndYinX", left, right[[1 + (offsets[i]) %% 32]], offsets[i] %/% 32, PACKAGE = "fastCircularPermutations")
+	permPVenrich  = max(mean(overlapsPerm >= sum12), 0.5/npermute);
+	permPVdeplete = max(mean(overlapsPerm <= sum12), 0.5/npermute);
+	permPV = min(permPVenrich, permPVdeplete, 0.5)*2;
 	
-	rez = list(
+	meanO = mean(overlapsPerm);
+	stdO = sd(overlapsPerm);
+	
+	permZ = (sum12 - meanO) / stdO;
+
+	rez = c(rez,list(
 		nfeatures = len,
 		lfeatures = sum1,
 		rfeatures = sum2,
 		overlap = sum12,
-		enrichment = sum12 / sum1 / sum2 * len);
+		enrichment = sum12 / sum1 / sum2 * len,
+		permPVenrich = permPVenrich,
+		permPVdeplete = permPVdeplete,
+		permPV = permPV,
+		permZ = permZ
+		));
+	if(returnPermOverlaps) {
+		rez = c(list(overlapsPerm = overlapsPerm), rez);
+	}
 	return(rez);
 }
