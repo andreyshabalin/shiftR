@@ -1,3 +1,7 @@
+# compiled code
+*.o
+*.dll
+
 # History files
 .Rhistory
 .Rapp.history
