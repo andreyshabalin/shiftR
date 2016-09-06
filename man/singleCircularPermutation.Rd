@@ -30,15 +30,16 @@ singleCircularPermutation(left, right, offset)
 	Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \examples{
-nFeatures = 1e6;
+### Number of features
+nf = 1e6
 
 ### Generate left and right sets
-lset = sample(c(0L,1L), replace = TRUE, nFeatures)
-rset = sample(c(0L,1L), replace = TRUE, nFeatures) | lset
+lset = sample(c(0L,1L), size = nf, replace = TRUE)
+rset = sample(c(0L,1L), size = nf, replace = TRUE) | lset
 
 # Prepare binary sets:
-lbin = prepareBinaryDataLeft(lset);
-rbin = prepareBinaryDataRight(rset);
+lbin = prepareBinaryDataLeft(lset)
+rbin = prepareBinaryDataRight(rset)
 
 ### count feature overlap
 # R calculations
@@ -53,9 +54,9 @@ stopifnot( overlapS == overlapF )
 
 
 ### Count overlap with offset
-offset = 2017;
+offset = 2017
 # R calculations
-overlapOS = sum(lset[ c((offset+1):nFeatures, 1:offset)] & rset)
+overlapOS = sum(lset[ c((offset+1):nf, 1:offset)] & rset)
 # Binary calculations
 overlapOF = singleCircularPermutation(lbin, rbin, offset)
 

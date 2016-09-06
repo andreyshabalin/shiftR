@@ -30,11 +30,12 @@ prepareBinaryDataRight(set)
 }
 %\references{}
 \examples{
-nFeatures = 1e6;
+### Number of features
+nf = 1e6
 
 ### Generate left and right sets
-lset = sample(c(0L,1L), replace = TRUE, nFeatures)
-rset = sample(c(0L,1L), replace = TRUE, nFeatures)
+lset = sample(c(0L,1L), size = nf, replace = TRUE)
+rset = sample(c(0L,1L), size = nf, replace = TRUE)
 
 # Prepare binary sets:
 lbin = prepareBinaryDataLeft(lset)

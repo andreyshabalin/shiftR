@@ -62,11 +62,11 @@ circularPermutationAnalysis(left,
 }
 \examples{
 ### Number of features
-nf = 1e6;
+nf = 1e6
 
 ### Generate data sets
 # The vector of a few common active feature to create dependence
-common = sample(c(0L,1L), size = nFeatures, replace = TRUE, prob = c(0.999,0.001))
+common = sample(c(0L,1L), size = nf, replace = TRUE, prob = c(0.999,0.001))
 # Left and right data sets with the common active features
 lset = sample(c(0L,1L), size = nf, replace = TRUE, prob = c(0.8,0.2)) | common
 rset = sample(c(0L,1L), size = nf, replace = TRUE, prob = c(0.8,0.2)) | common

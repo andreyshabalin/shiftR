@@ -2,30 +2,26 @@
 \alias{fastCircularPermutations-package}
 \docType{package}
 \title{
- Very fast circular permutation analysis on binary outcomes
+ Very Fast Circular Permutation Analysis on Binary Outcomes
 }
 \description{
- File-Backed Matrix Class with Convenient Read and Write Access
+ Very fast circular permutation analysis on binary outcomes
+    using bitwise operations on binary representation of the data.
 }
 \details{
 	\tabular{ll}{
-		Package: \tab filematrix \cr
+		Package: \tab fastCircularPermutations \cr
 		Type: \tab Package \cr
 		License: \tab LGPL-3 \cr 
 		Depends: \tab methods \cr
 	}
-	
-	Provides very fast circular permutation analysis 
-   using bitwise operations on binary representation of the data.
 }
-\note{
-}
+%\note{}
 \author{
 	Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \keyword{ fastCircularPermutations }
 \seealso{
-	See \code{\link{}} and \code{\linkS4class{}} for reference.
-	
+	See the main function \code{\link{circularPermutationAnalysis}} for more info.
 	% Run \code{browseVignettes("filematrix")} for the list of vignettes.
 }
