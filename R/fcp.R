@@ -61,6 +61,7 @@ circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, als
 	stopifnot( class(left) == "fcpLeft" );
 	stopifnot( class(right) == "fcpRight" );
 	stopifnot( attr(left, "len") == attr(right, "len") );
+	stopifnot( npermute > 0 );
 	sum1 = attr(left, "sum");
 	sum2 = attr(left, "sum");
 	sum12 = singleCircularPermutation(left, right, 0);
@@ -90,6 +91,7 @@ circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, als
 		lfeatures = sum1,
 		rfeatures = sum2,
 		overlap = sum12,
+		overlapUnderNull = sum1 / len * sum2,
 		enrichment = sum12 / sum1 / sum2 * len,
 		permPVenrich = permPVenrich,
 		permPVdeplete = permPVdeplete,
