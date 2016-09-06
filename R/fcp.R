@@ -53,4 +53,21 @@ prepareBinaryDataRight = function(set) {
 singleCircularPermutation = function(left, right, offset) {
 	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "fastCircularPermutations")
 }
+
+circularPermutationAnalysis = function(left, right, npermute, margin = 0.05) {
+	stopifnot( class(left) == "fcpLeft" );
+	stopifnot( class(right) == "fcpRight" );
+	stopifnot( attr(left, "len") == attr(right, "len") );
+	sum1 = attr(left, "sum");
+	sum2 = attr(left, "sum");
+	sum12 = singleCircularPermutation(left, right, 0);
+	len =  attr(left, "len");
 	
+	rez = list(
+		nfeatures = len,
+		lfeatures = sum1,
+		rfeatures = sum2,
+		overlap = sum12,
+		enrichment = sum12 / sum1 / sum2 * len);
+	return(rez);
+}
