@@ -73,7 +73,7 @@ circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, als
 	}
 
 	overlapsPerm = integer(npermute);
-	offsets = sample(len*(1-2*margin), size = npermute, replace = TRUE) + len*margin;
+	offsets = sample(len*(1-2*margin), size = npermute, replace = FALSE) + len*margin;
 	for( i in seq_len(npermute) ) 
 		overlapsPerm[i] = .Call("CbitSumAndYinX", left, right[[1 + (offsets[i]) %% 32]], offsets[i] %/% 32, PACKAGE = "fastCircularPermutations")
 	permPVenrich  = max(mean(overlapsPerm >= sum12), 0.5/npermute);
