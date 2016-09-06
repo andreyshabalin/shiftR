@@ -53,6 +53,11 @@ prepareBinaryDataRight = function(set) {
 }
 
 singleCircularPermutation = function(left, right, offset) {
+	stopifnot( class(left) == "fcpLeft" );
+	stopifnot( class(right) == "fcpRight" );
+	stopifnot( attr(left, "len") == attr(right, "len") );
+	stopifnot( offset >= 0L )
+	stopifnot( offset < attr(right, "len") )
 	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "fastCircularPermutations")
 }
 
