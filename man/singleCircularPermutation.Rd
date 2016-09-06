@@ -18,7 +18,8 @@ singleCircularPermutation(left, right, offset)
   Feature set prepared with \code{\link{prepareBinaryDataRight}} function.
  }
  \item{offset}{
-  Offset of one feature set with respect to another. See example below for clarity. Zero indicate no offset, i.e. simple feature overlap.
+  Offset of one feature set relative to another. See the example below for clarity. \cr
+  Zero indicate no offset, i.e. simply count feature overlap.
  }
 }
 
