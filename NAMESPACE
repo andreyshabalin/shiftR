@@ -3,6 +3,9 @@ export(
 	"prepareBinaryDataLeft",
 	"prepareBinaryDataRight",
 	"circularPermutationAnalysis",
+	"getOffsetsAll",
+	"getOffsetsRandom",
+	"getOffsetsUniform",
 	"singleCircularPermutation"
 )
 importFrom("stats","fisher.test")
