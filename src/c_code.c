@@ -2,16 +2,13 @@
 #include <Rinternals.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <R_ext/Rdynload.h>
 
-// bytesum = function(x){ a = rawToBits(as.raw(x)); return(sum(as.integer(a)));}
-// paste(sapply(0:255, bytesum), collapse = ',')
-
 // __builtin_popcount
-
-#include <stdint.h>
-
-static inline int popcount( unsigned int i ) {
+static inline int popcount( unsigned int i ){
+	// bytesum = function(x){ a = rawToBits(as.raw(x)); return(sum(as.integer(a)));}
+	// paste(sapply(0:255, bytesum), collapse = ',')
 	static unsigned char bitsums[256] = {
 		0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4,1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,
 		1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,
@@ -21,10 +18,10 @@ static inline int popcount( unsigned int i ) {
 		2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,
 		2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,
 		3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,4,5,5,6,5,6,6,7,5,6,6,7,6,7,7,8};
-	return(  bitsums[i&0xFF] + 
-				bitsums[(i>>8)&0xFF] +
-				bitsums[(i>>16)&0xFF] +
-				bitsums[(i>>24)]);
+	return(  bitsums[ i      & 0xFF] + 
+				bitsums[(i>>8)  & 0xFF] +
+				bitsums[(i>>16) & 0xFF] +
+				bitsums[(i>>24)       ]);
 }
 
 int inline NumberOfSetBits(unsigned int i){

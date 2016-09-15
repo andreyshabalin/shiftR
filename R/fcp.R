@@ -1,24 +1,24 @@
-bitSum = function(x) {
+bitSum = function(x){
 	.Call("CbitSum", x, PACKAGE = "fastCircularPermutations")
 }
 
-bitSumAnd = function(x,y) {
+bitSumAnd = function(x,y){
 	.Call("CbitSumAnd", x, y, PACKAGE = "fastCircularPermutations")
 }
 
-bitSumOr = function(x,y) {
+bitSumOr = function(x,y){
 	.Call("CbitSumOr", x, y, PACKAGE = "fastCircularPermutations")
 }
 
-bitSumAndShifted = function(x, y, yoffset) {
+bitSumAndShifted = function(x, y, yoffset){
 	.Call("CbitSumAndShifted", x, y, yoffset, PACKAGE = "fastCircularPermutations")
 }
 
-bitSumAndYinX = function(x, y, yoffset) {
+bitSumAndYinX = function(x, y, yoffset){
 	.Call("CbitSumAndYinX", x, y, yoffset, PACKAGE = "fastCircularPermutations")
 }
 
-prepareBinaryDataLeft = function(set) {
+prepareBinaryDataLeft = function(set){
 	if(typeof(set) == "double")
 		set = as.integer(set);
 	zero = switch(typeof(set),
@@ -33,7 +33,7 @@ prepareBinaryDataLeft = function(set) {
 	return(rez);
 }
 
-prepareBinaryDataRight = function(set) {
+prepareBinaryDataRight = function(set){
 	if(typeof(set) == "double")
 		set = as.integer(set);
 	zero = switch(typeof(set),
@@ -52,7 +52,7 @@ prepareBinaryDataRight = function(set) {
 	return(rez);
 }
 
-singleCircularPermutation = function(left, right, offset) {
+singleCircularPermutation = function(left, right, offset){
 	stopifnot( class(left) == "fcpLeft" );
 	stopifnot( class(right) == "fcpRight" );
 	stopifnot( attr(left, "len") == attr(right, "len") );
@@ -61,7 +61,7 @@ singleCircularPermutation = function(left, right, offset) {
 	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "fastCircularPermutations")
 }
 
-circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, alsoDoFisher = TRUE, returnPermOverlaps = FALSE) {
+circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
 	rez = list();
 	stopifnot( class(left) == "fcpLeft" );
 	stopifnot( class(right) == "fcpRight" );
