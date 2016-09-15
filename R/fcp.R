@@ -99,12 +99,12 @@ getOffsetsUniform = function(n, npermute, margin = 0.05){
 # range( fastCircularPermutations:::getOffsetsUniform(n=100, npermute=91, margin=0.05) )
 # typeof( fastCircularPermutations:::getOffsetsUniform(n=100, npermute=91, margin=0.05))
 
-circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
+circularPermutationAnalysis = function(left, right, offsets, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
 	rez = list();
+	stopifnot( typeof(offsets) == "integer" );
 	stopifnot( class(left) == "fcpLeft" );
 	stopifnot( class(right) == "fcpRight" );
 	stopifnot( attr(left, "len") == attr(right, "len") );
-	stopifnot( npermute > 0 );
 	sum1 = attr(left, "sum");
 	sum2 = attr(left, "sum");
 	sum12 = singleCircularPermutation(left, right, 0);
@@ -116,12 +116,11 @@ circularPermutationAnalysis = function(left, right, npermute, margin = 0.05, als
 					  fisherMat = fisherMat)
 	}
 
-	overlapsPerm = integer(npermute);
-	offsets = sample(len*(1-2*margin), size = npermute, replace = FALSE) + len*margin;
-	for( i in seq_len(npermute) ) 
+	overlapsPerm = integer(length(offsets));
+	for( i in seq_along(offsets) ) 
 		overlapsPerm[i] = .Call("CbitSumAndYinX", left, right[[1 + (offsets[i]) %% 32]], offsets[i] %/% 32, PACKAGE = "fastCircularPermutations")
-	permPVenrich  = max(mean(overlapsPerm >= sum12), 0.5/npermute);
-	permPVdeplete = max(mean(overlapsPerm <= sum12), 0.5/npermute);
+	permPVenrich  = max(mean(overlapsPerm >= sum12), 0.5/length(offsets));
+	permPVdeplete = max(mean(overlapsPerm <= sum12), 0.5/length(offsets));
 	permPV = min(permPVenrich, permPVdeplete, 0.5)*2;
 	
 	meanO = mean(overlapsPerm);
