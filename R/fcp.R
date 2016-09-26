@@ -106,7 +106,7 @@ circularPermutationAnalysis = function(left, right, offsets, alsoDoFisher = TRUE
 	stopifnot( class(right) == "fcpRight" );
 	stopifnot( attr(left, "len") == attr(right, "len") );
 	sum1 = attr(left, "sum");
-	sum2 = attr(left, "sum");
+	sum2 = attr(right, "sum");
 	sum12 = singleCircularPermutation(left, right, 0);
 	len =  attr(left, "len");
 	if(alsoDoFisher) {
