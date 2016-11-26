@@ -24,7 +24,7 @@ static inline int popcount( unsigned int i ){
 				bitsums[(i>>24)       ]);
 }
 
-int inline NumberOfSetBits(unsigned int i){
+int NumberOfSetBits(unsigned int i){
 	// Java: use >>> instead of >>
 	// C or C++: use uint32_t
 	i = i - ((i >> 1) & 0x55555555);
