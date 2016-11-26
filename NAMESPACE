@@ -8,4 +8,4 @@ export(
 	"getOffsetsUniform",
 	"singleCircularPermutation"
 )
-importFrom("stats","fisher.test")
+importFrom("stats", "fisher.test", "sd")
