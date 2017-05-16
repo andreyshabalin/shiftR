@@ -1,7 +1,7 @@
-# shiftR: Very fast circular permutation analysis on binary outcomes
+# shiftR: Very fast enrichment analysis via circular permutations
 
 To install shiftR directly from GitHub run
 
 ```
-devtools::install_github("andreyshabalin/shiftR")
+devtools::install_github("andreyshabalin/fastCircularPermutations")
 ```
