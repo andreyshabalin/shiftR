@@ -114,7 +114,8 @@ circularPermutationAnalysis = function(left, right, offsets, alsoDoFisher = TRUE
 		rfeatures = sum2,
 		overlap = sum12,
 		overlapUnderNull = sum1 / len * sum2,
-		enrichment = sum12 / sum1 / sum2 * len,
+		oddsRatio = sum12 * (len - sum1 - sum2 + sum12 + 0) /
+		            ((sum1-sum12) * (sum2-sum12)),
 		permPVenrich = permPVenrich,
 		permPVdeplete = permPVdeplete,
 		permPV = permPV,
