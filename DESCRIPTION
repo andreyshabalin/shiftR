@@ -7,6 +7,6 @@ Author: Andrey A Shabalin
 Maintainer: Andrey A Shabalin <ashabalin@vcu.edu>
 Description: Very fast circular permutation analysis 
     using bitwise operations on binary representation of the data.
-BugReports: https://github.com/andreyshabalin/fastCircularPermutations/issues
-URL: https://github.com/andreyshabalin/fastCircularPermutations
+BugReports: https://github.com/andreyshabalin/shiftR/issues
+URL: https://github.com/andreyshabalin/shiftR
 License: LGPL-3
