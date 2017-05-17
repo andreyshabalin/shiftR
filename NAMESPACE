@@ -1,4 +1,4 @@
-useDynLib(fastCircularPermutations, .registration = TRUE)
+useDynLib(shiftR, .registration = TRUE)
 export(
 	"prepareBinaryDataLeft",
 	"prepareBinaryDataRight",

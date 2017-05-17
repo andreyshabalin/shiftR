@@ -1,4 +1,4 @@
-Package: fastCircularPermutations
+Package: shiftR
 Type: Package
 Title: Very fast circular permutation analysis on binary outcomes
 Version: 1.1.1
