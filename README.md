@@ -3,5 +3,5 @@
 To install shiftR directly from GitHub run
 
 ```
-devtools::install_github("andreyshabalin/fastCircularPermutations")
+devtools::install_github("andreyshabalin/shiftR")
 ```
