@@ -5,10 +5,22 @@ export(
 	"shiftrPermBinary",
 	"cramerV",
 	"matchDatasets",
+	"enrichmentAnalysis",
 	"getNOffsetsMax",
 	"getOffsetsAll",
 	"getOffsetsRandom",
 	"getOffsetsUniform",
 	"singlePermutation"
 )
-importFrom("stats", "fisher.test", "sd")
+importFrom("stats", 
+    "fisher.test",
+    "sd", 
+    "quantile")
+importFrom("parallel",
+    "makeCluster", 
+    "clusterSplit", 
+    "stopCluster", 
+    "detectCores", 
+    "clusterApplyLB")
+
+
