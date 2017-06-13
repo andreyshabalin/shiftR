@@ -88,7 +88,7 @@ shiftrPermBinary = function(left, right, offsets, alsoDoFisher = TRUE, returnPer
 	stopifnot( typeof(offsets) %in% c("NULL","integer") );
 	if( class(left) != "fcpLeft" )
 	    left = shiftrPrepareLeft(left);
-	if( class(right) == "fcpRight" )
+	if( class(right) != "fcpRight" )
 	    right = shiftrPrepareRight(right);
 	stopifnot( attr(left, "len") == attr(right, "len") );
 	sum1 = attr(left, "sum");
