@@ -68,11 +68,6 @@ common = sample(c(0L,1L), size = nf, replace = TRUE, prob = c(0.999,0.001))
 lset = sample(c(0L,1L), size = nf, replace = TRUE, prob = c(0.8,0.2)) | common
 rset = sample(c(0L,1L), size = nf, replace = TRUE, prob = c(0.8,0.2)) | common
 
-# Prepare binary sets:
-left = prepareBinaryDataLeft(lset)
-right = prepareBinaryDataRight(rset)
-
-
 offsets = getOffsetsUniform(n = nf, npermute = npermute)
 
 show(head(offsets))

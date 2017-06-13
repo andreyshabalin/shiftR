@@ -4,18 +4,20 @@
 	Count feature overlap under permutation (offset).
 }
 \description{
-	This function performs fast feature overlap count under a circular permutation.
-	The input data sets must be prepared with \code{\link{prepareBinaryDataLeft}} and \code{\link{prepareBinaryDataRight}} functions.
-}
+	This function performs fast feature overlap 
+	count under a circular permutation.
+	The input data sets can be preprocessed with 
+	\code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
+	functions.}
 \usage{
 singleCircularPermutation(left, right, offset)
 }
 \arguments{
  \item{left}{
-  Feature set prepared with \code{\link{prepareBinaryDataLeft}} function.
+  Feature set prepared with \code{\link{shiftrPrepareLeft}} function.
  }
  \item{right}{
-  Feature set prepared with \code{\link{prepareBinaryDataRight}} function.
+  Feature set prepared with \code{\link{shiftrPrepareRight}} function.
  }
  \item{offset}{
   Offset of one feature set relative to another. See the example below for clarity. \cr
@@ -38,8 +40,8 @@ lset = sample(c(0L,1L), size = nf, replace = TRUE)
 rset = sample(c(0L,1L), size = nf, replace = TRUE) | lset
 
 # Prepare binary sets:
-lbin = prepareBinaryDataLeft(lset)
-rbin = prepareBinaryDataRight(rset)
+lbin = shiftrPrepareLeft(lset)
+rbin = shiftrPrepareRight(rset)
 
 ### count feature overlap
 # R calculations
