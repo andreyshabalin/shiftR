@@ -2,6 +2,7 @@
 \alias{getOffsetsAll}
 \alias{getOffsetsRandom}
 \alias{getOffsetsUniform}
+\alias{getNOffsetsMax}
 \title{
 	Generate Random or Uniformly Spaced Permutation Offsets
 }
