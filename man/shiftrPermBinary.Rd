@@ -63,7 +63,8 @@ shiftrPermBinary(
 	Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \seealso{
-    This function essentially involves \code{npermute} calls of \code{\link{singlePermutation}} function.
+    This function essentially involves \code{npermute} calls of \code{\link{singlePermutation}} function
+    and calculation of summary statistics and p-values.
 }
 \examples{
 ### Number of features
