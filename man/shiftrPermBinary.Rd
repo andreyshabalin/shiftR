@@ -63,7 +63,7 @@ shiftrPermBinary(
 	Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \seealso{
-    This function essentially involves \code{npermute} calls of \code{\link{singleCircularPermutation}} function.
+    This function essentially involves \code{npermute} calls of \code{\link{singlePermutation}} function.
 }
 \examples{
 ### Number of features
