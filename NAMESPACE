@@ -1,8 +1,8 @@
 useDynLib(shiftR, .registration = TRUE)
 export(
-	"prepareBinaryDataLeft",
-	"prepareBinaryDataRight",
-	"circularPermutationAnalysis",
+	"shiftrPrepareLeft",
+	"shiftrPrepareRight",
+	"shiftrPermBinary",
 	"cramerV",
 	"getOffsetsAll",
 	"getOffsetsRandom",
