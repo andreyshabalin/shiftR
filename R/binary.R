@@ -86,8 +86,10 @@ getOffsetsUniform = function(n, npermute, margin = 0.05){
 shiftrPermBinary = function(left, right, offsets, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
 	rez = list();
 	stopifnot( typeof(offsets) %in% c("NULL","integer") );
-	stopifnot( class(left) == "fcpLeft" );
-	stopifnot( class(right) == "fcpRight" );
+	if( class(left) != "fcpLeft" )
+	    left = shiftrPrepareLeft(left);
+	if( class(right) == "fcpRight" )
+	    right = shiftrPrepareRight(right);
 	stopifnot( attr(left, "len") == attr(right, "len") );
 	sum1 = attr(left, "sum");
 	sum2 = attr(right, "sum");
