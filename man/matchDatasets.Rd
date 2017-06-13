@@ -16,7 +16,7 @@
 	If no such record is available, no matching is made for the primary record.
 }
 \usage{
-matchDatasets(  data1, data2, flank = 0)
+matchDatasets(data1, data2, flank = 0)
 }
 \arguments{
     \item{data1}{
@@ -40,9 +40,13 @@ matchDatasets(  data1, data2, flank = 0)
 }
 
 \value{
-	Returns a list with three elements.
-	\item{data1}{The primary data sets with unmatched records excluded.}
-	\item{data2}{The auxiliary data set records matching those in \code{data1} above.}
+	Returns a list with matched data sets.
+	\item{data1}{The primary data sets without unmatched records.}
+	\item{data2}{The auxiliary data set records matching those in 
+	            \code{data1} above. \cr
+	            Note that some auxiliary records can get duplicated
+	            if they are the best match for
+	            multiple records in the primary data.}
 }
 \note{
     For a technical reason, the chromosome positions are assumed to be no greater than \code{1e9}.
@@ -74,10 +78,10 @@ chr1,350,350,7
 chr1,360,360,8
 chr1,900,900,9")
 
-# Match data sets exactly
+# Match data sets exactly.
 matchDatasets(data1, data2, 0)
 
-# Match data sets with a flank
-# last records are now matched
+# Match data sets with a flank.
+# The last records are now matched.
 matchDatasets(data1, data2, 100)
 }
