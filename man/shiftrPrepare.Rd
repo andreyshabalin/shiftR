@@ -28,13 +28,13 @@ shiftrPrepareRight(set)
 
 \value{
 	Returns objects of class \code{fcpLeft} and \code{fcpRight} respectively.
-	The returned objects are used in \code{\link{singleCircularPermutation}} and \code{\link{circularPermutationAnalysis}} functions.
+	The returned objects are used in \code{\link{singleCircularPermutation}} and \code{\link{shiftrPermBinary}} functions.
 }
 \author{
 	Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \seealso{
- See \code{\link{singleCircularPermutation}} and \code{\link{circularPermutationAnalysis}} function and the respective examples.
+ See \code{\link{singleCircularPermutation}} and \code{\link{shiftrPermBinary}} function and the respective examples.
 }
 %\references{}
 \examples{

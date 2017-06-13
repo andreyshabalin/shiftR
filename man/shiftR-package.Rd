@@ -24,6 +24,6 @@
 }
 \keyword{ shiftR }
 \seealso{
-	See the main function \code{\link{circularPermutationAnalysis}} for more info.
+	See the main function \code{\link{shiftrPermBinary}} for more info.
 	% Run \code{browseVignettes("filematrix")} for the list of vignettes.
 }

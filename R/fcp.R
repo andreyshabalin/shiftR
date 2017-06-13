@@ -79,7 +79,7 @@ getOffsetsUniform = function(n, npermute, margin = 0.05){
 # range( shiftR:::getOffsetsUniform(n=100, npermute=91, margin=0.05) )
 # typeof( shiftR:::getOffsetsUniform(n=100, npermute=91, margin=0.05))
 
-circularPermutationAnalysis = function(left, right, offsets, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
+shiftrPermBinary = function(left, right, offsets, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
 	rez = list();
 	stopifnot( typeof(offsets) == "integer" );
 	stopifnot( class(left) == "fcpLeft" );

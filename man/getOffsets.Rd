@@ -6,7 +6,7 @@
 	Generate Random or Uniformly Spaced Permutation Offsets
 }
 \description{
-	This functions generate offsets for permutation analysis with \code{\link{circularPermutationAnalysis}}. 
+	This functions generate offsets for permutation analysis with \code{\link{shiftrPermBinary}}. 
 	Random, uniformly spaced, and complete sets are available via \code{getOffsetsRandom}, \code{getOffsetsUniform}, and \code{getOffsetsAll} functions respectively.
 }
 \usage{
@@ -27,7 +27,7 @@ getOffsetsAll(n, margin)
 }
 
 \value{
-	Returns a set of permutation offsets for use in \code{\link{circularPermutationAnalysis}} function. 
+	Returns a set of permutation offsets for use in \code{\link{shiftrPermBinary}} function. 
 	The set of offsets is random for \code{getOffsetsRandom}, uniformly spaced for \code{getOffsetsUniform}, or complete for \code{getOffsetsAll}.
 
 }
