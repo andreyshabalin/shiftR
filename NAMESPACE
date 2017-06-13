@@ -4,6 +4,7 @@ export(
 	"shiftrPrepareRight",
 	"shiftrPermBinary",
 	"cramerV",
+	"matchDatasets",
 	"getOffsetsAll",
 	"getOffsetsRandom",
 	"getOffsetsUniform",
