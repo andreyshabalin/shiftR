@@ -41,48 +41,6 @@ singlePermutation = function(left, right, offset){
 	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "shiftR")
 }
 
-getNOffsetsMax = function(n, margin){
-    as.integer(n*(1-margin)) - as.integer(n*margin) + 1L;
-}
-
-# n = 100; margin = 0.05; npermute = 13
-getOffsetsAll = function(n, margin){
-	stopifnot( margin >= 0 );
-	stopifnot( margin < 0.5 );
-	stopifnot( is.numeric(margin) );
-	stopifnot( is.numeric(n) );
-	return( as.integer(n*margin):as.integer(n*(1-margin)) );
-}
-# typeof( shiftR:::getOffsetsAll(n,margin))
-getOffsetsRandom = function(n, npermute, margin = 0.05){
-	stopifnot( margin >= 0 );
-	stopifnot( margin < 0.5 );
-	stopifnot( is.numeric(margin) );
-	stopifnot( is.numeric(n) );
-	stopifnot( is.numeric(npermute) );
-	offsets = sample.int(n = floor(n*(1-2*margin))+1, size = floor(npermute), replace = FALSE) + as.integer(n*margin-1);
-	return( offsets );
-}
-# shiftR:::getOffsetsRandom(n=100, npermute=91, margin=0.05)
-# range( shiftR:::getOffsetsRandom(n=100, npermute=91, margin=0.05) )
-# typeof( shiftR:::getOffsetsRandom(n=100, npermute=91, margin=0.05))
-
-getOffsetsUniform = function(n, npermute, margin = 0.05){
-	stopifnot( margin >= 0 );
-	stopifnot( margin < 0.5 );
-	stopifnot( is.numeric(margin) );
-	stopifnot( is.numeric(n) );
-	stopifnot( is.numeric(npermute) );
-	from = as.integer(n*margin)
-	to = as.integer(n*(1-margin))
-	stopifnot( npermute <= to - from );
-	offsets = as.integer(seq.int(from = from, to = to, length.out = npermute));
-	return( offsets );
-}
-# shiftR:::getOffsetsUniform(n=100, npermute=91, margin=0.05)
-# range( shiftR:::getOffsetsUniform(n=100, npermute=91, margin=0.05) )
-# typeof( shiftR:::getOffsetsUniform(n=100, npermute=91, margin=0.05))
-
 shiftrPermBinary = function(left, right, offsets, alsoDoFisher = TRUE, returnPermOverlaps = FALSE){
 	rez = list();
 	stopifnot( typeof(offsets) %in% c("NULL","integer") );
