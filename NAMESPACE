@@ -3,6 +3,7 @@ export(
 	"prepareBinaryDataLeft",
 	"prepareBinaryDataRight",
 	"circularPermutationAnalysis",
+	"cramerV",
 	"getOffsetsAll",
 	"getOffsetsRandom",
 	"getOffsetsUniform",
