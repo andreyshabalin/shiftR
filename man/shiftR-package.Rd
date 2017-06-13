@@ -2,21 +2,23 @@
 \alias{shiftR-package}
 \docType{package}
 \title{
- Very Fast Circular Permutation Analysis on Binary Outcomes
+    Fast Enrichment Analysis via Circular Permutations of binary outcomes
 }
 \description{
- Very fast circular permutation analysis on binary outcomes
-    using bitwise operations on binary representation of the data.
+    Fast enrichment analysis for locally correlated statistics
+    via circular permutations.
+    The analysis can be performed at multiple significance thresholds
+    for both primary and auxiliary data sets with 
+    with efficient correction for multiple testing.
 }
 \details{
-	\tabular{ll}{
-		Package: \tab shiftR \cr
-		Type: \tab Package \cr
-		License: \tab LGPL-3 \cr 
-		Depends: \tab methods \cr
-	}
+    \tabular{ll}{
+        Package: \tab shiftR \cr
+        Type: \tab Package \cr
+        License: \tab LGPL-3 \cr 
+        Depends: \tab methods \cr
+    }
 }
-%\note{}
 \author{
 	Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
