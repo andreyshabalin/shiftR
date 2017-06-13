@@ -5,6 +5,7 @@ export(
 	"shiftrPermBinary",
 	"cramerV",
 	"matchDatasets",
+	"getNOffsetsMax",
 	"getOffsetsAll",
 	"getOffsetsRandom",
 	"getOffsetsUniform",

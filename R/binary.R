@@ -41,7 +41,7 @@ singlePermutation = function(left, right, offset){
 	.Call("CbitSumAndYinX", left, right[[1 + (offset) %% 32]], offset %/% 32, PACKAGE = "shiftR")
 }
 
-getNOffestsMax = function(n, margin){
+getNOffsetsMax = function(n, margin){
     as.integer(n*(1-margin)) - as.integer(n*margin) + 1L;
 }
 
