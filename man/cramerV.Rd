@@ -21,7 +21,7 @@ cramerV(sum12, sum1, sum2, len)
         Number of active features in data set 1.
     }
     \item{sum12}{
-        Number of jointly active features in both data sets.
+        Number of simultaneously active features in the data sets.
     }    
 }
 
