@@ -32,7 +32,7 @@ shiftrPrepareRight = function(set){
 	return(rez);
 }
 
-singleCircularPermutation = function(left, right, offset){
+singlePermutation = function(left, right, offset){
 	stopifnot( class(left) == "fcpLeft" );
 	stopifnot( class(right) == "fcpRight" );
 	stopifnot( attr(left, "len") == attr(right, "len") );
@@ -91,7 +91,7 @@ shiftrPermBinary = function(left, right, offsets, alsoDoFisher = TRUE, returnPer
 	stopifnot( attr(left, "len") == attr(right, "len") );
 	sum1 = attr(left, "sum");
 	sum2 = attr(right, "sum");
-	sum12 = singleCircularPermutation(left, right, 0);
+	sum12 = singlePermutation(left, right, 0);
 	len =  attr(left, "len");
 	if(alsoDoFisher) {
 		fisherMat = matrix(c(sum12,sum1-sum12,sum2-sum12,len-sum1-sum2+sum12),2,2);

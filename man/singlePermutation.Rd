@@ -1,5 +1,5 @@
-\name{singleCircularPermutation}
-\alias{singleCircularPermutation}
+\name{singlePermutation}
+\alias{singlePermutation}
 \title{
 	Count feature overlap under permutation (offset).
 }
@@ -10,7 +10,7 @@
 	\code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
 	functions.}
 \usage{
-singleCircularPermutation(left, right, offset)
+singlePermutation(left, right, offset)
 }
 \arguments{
  \item{left}{
@@ -47,7 +47,7 @@ rbin = shiftrPrepareRight(rset)
 # R calculations
 overlapS = sum(lset & rset)
 # Binary calculations
-overlapF = singleCircularPermutation(lbin, rbin, 0)
+overlapF = singlePermutation(lbin, rbin, 0)
 
 message("Feature overlap: ",
         overlapS, " / ", overlapF,
@@ -60,7 +60,7 @@ offset = 2017
 # R calculations
 overlapOS = sum(lset[ c((offset+1):nf, 1:offset)] & rset)
 # Binary calculations
-overlapOF = singleCircularPermutation(lbin, rbin, offset)
+overlapOF = singlePermutation(lbin, rbin, offset)
 
 message("Feature overlap at offset: ",
         overlapOS, " / ", overlapOF,

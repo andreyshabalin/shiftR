@@ -8,6 +8,6 @@ export(
 	"getOffsetsAll",
 	"getOffsetsRandom",
 	"getOffsetsUniform",
-	"singleCircularPermutation"
+	"singlePermutation"
 )
 importFrom("stats", "fisher.test", "sd")
