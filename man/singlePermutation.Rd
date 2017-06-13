@@ -6,23 +6,24 @@
 \description{
 	This function performs fast feature overlap 
 	count under a circular permutation.
-	The input data sets can be preprocessed with 
+	The input data sets must be preprocessed with 
 	\code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
 	functions.}
 \usage{
 singlePermutation(left, right, offset)
 }
 \arguments{
- \item{left}{
-  Feature set prepared with \code{\link{shiftrPrepareLeft}} function.
- }
- \item{right}{
-  Feature set prepared with \code{\link{shiftrPrepareRight}} function.
- }
- \item{offset}{
-  Offset of one feature set relative to another. See the example below for clarity. \cr
-  Zero indicate no offset, i.e. simply count feature overlap.
- }
+    \item{left}{
+        Feature set prepared with \code{\link{shiftrPrepareLeft}} function.
+    }
+    \item{right}{
+        Feature set prepared with \code{\link{shiftrPrepareRight}} function.
+    }
+    \item{offset}{
+        Offset of one feature set relative to another. 
+        See the example below for clarity. \cr
+        Zero indicate no offset, i.e. simply count feature overlap.
+    }
 }
 
 \value{
