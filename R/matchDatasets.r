@@ -2,22 +2,42 @@ matchDatasets = function(data1, data2, flank = 0){
     # Process chromosome names
     # character or numeric
     {
-        # chr1 = factor(c('chr1','chr2','chr2','chr2')); chr2 = c(1,1,2,2,3,3)
         chr1 = data1[[1]];
-        if(is.character(chr1) || is.factor(chr1))
-            chr1 = gsub('^chr','',chr1);
-        
         chr2 = data2[[1]];
-        if(is.character(chr2) || is.factor(chr2))
-            chr2 = gsub('^chr','',chr2);
-        
-        chr12 = c(chr1, chr2);
-        chrset = chr12[!duplicated(chr12)];
-        
-        chr1ind = match(chr1, chrset);
-        chr2ind = match(chr2, chrset);
-        
-        rm(chr1, chr2, chr12, chrset)
+        if(is.numeric(chr1) & is.numeric(chr2)){
+            chr1ind = chr1;
+            chr2ind = chr2;
+        } else {
+            # chr1 = factor(c('chr1','chr2','chr2','chr2')); chr2 = c(1,1,2,2,3,3)
+            if(!is.factor(chr1))
+                chr1 = factor(chr1);
+            if(is.factor(chr1))
+                levels(chr1) = gsub('^chr', '', levels(chr1));
+            
+            if(!is.factor(chr2))
+                chr2 = factor(chr2);
+            if(is.factor(chr2))
+                levels(chr2) = gsub('^chr', '', levels(chr2));
+            
+            # chr1 = factor(c("1","12"))
+            # chr2 = factor(c("1","33"))
+            
+            chrsame = (length(levels(chr1)) == length(levels(chr2)));
+            if(chrsame)
+                chrsame = all(levels(chr1) == levels(chr2));
+            if(chrsame){
+                chr1ind = as.integer(chr1);
+                chr2ind = as.integer(chr2);
+            } else {
+                chrset = union(levels(chr1), levels(chr2));
+                as.numeric(chrset)
+                chr1ind = as.integer(factor(chr1, levels = chrset));
+                chr2ind = as.integer(factor(chr2, levels = chrset));
+                rm(chrset);
+            }
+            rm(chrsame)
+        }
+        rm(chr1, chr2);
     } # chr1ind, chr2ind
     
     # single number coordinates for both data sets
@@ -112,9 +132,29 @@ matchDatasets = function(data1, data2, flank = 0){
         rm(ind1, ind2, set)
     }
     result = list( 
-        data1 = data1[index>0L,], 
-        data2 = data2[index,]
+        data1 = data.frame( lapply(data1, `[`, which(index>0L)), stringsAsFactors = FALSE, check.rows = FALSE),
+        data2 = data.frame( lapply(data2, `[`, index[index>0L]), stringsAsFactors = FALSE, check.rows = FALSE)
         # mch   = index
     );
     return(result);
 }
+
+# system.time({ result = list( 
+#     data1 = data1[index>0L,], 
+#     data2 = data2[index,]
+#     # mch   = index
+# );})
+#  18.28
+
+# system.time({ result = list( 
+#     data1 = data.frame( lapply(data1, `[`, which(index>0L)), stringsAsFactors = FALSE, check.rows = FALSE),
+#     data2 = data.frame( lapply(data1, `[`, index[index>0L]), stringsAsFactors = FALSE, check.rows = FALSE)
+#     # mch   = index
+# );})
+# 13.66 
+
+
+
+
+
+
