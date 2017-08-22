@@ -96,7 +96,7 @@ margin = 0.05;
 # Set the number of permutations
 # to the maximum
 
-npermute = 1000
+npermute = 1e3
 
 
 enr = enrichmentAnalysis(
