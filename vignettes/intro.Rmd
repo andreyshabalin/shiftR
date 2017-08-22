@@ -1,0 +1,159 @@
+---
+title: "Overview of shiftR"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true # table of content true
+vignette: >
+  %\VignetteIndexEntry{Overview of shiftR}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r loadKnitr, echo=FALSE}
+library("knitr")
+# opts_chunk$set(eval=FALSE)
+library(pander)
+panderOptions("digits", 3)
+set.seed(18090212)
+library(shiftR)
+```
+
+# Overview
+
+This package is designed for fast enrichment analysis of 
+locally correlated statistics via circular permutations.
+Circular permutations are used to preserve local dependence of test statistics.
+This allows the permutation analysis 
+to produce correct p-values when alternatives (like Fisher's exact test)
+would produce inflated test statistics (next chapter provides an example).
+
+# Permutation analysis on matched binary data sets {#binary}
+
+First, for the introduction, 
+let us consider two data sets with binary measurements across
+the same set of conditions. 
+
+* Both data sets are binary (e.g. 0/1, success/failure outcomes).
+* The values in one data set are matched to the values in the other,
+  i.e. the values are available for the same location / time.
+
+A practical example of such pair of data sets would be
+a set of daily weather measurements in two cities,
+with binary values 0/1 indicating if it was raining
+in the given city on a particular day.
+The values within each data set are clearly locally correlated,
+as the weather today depends on the weather yesterday.
+
+Our goal is to test if the occurences of rain
+in the two cities are statistically dependent.
+
+Note that Fisher's exact test should NOT be applied here
+because it requires independence of measurements within each data set.
+
+With the following code we generate
+a pair of **independent** data sets with high local dependence (`cor = 0.99`)
+and perform testing for dependence with `shiftR` contrast it 
+with Fisher's exact test.
+The local dependence causes Fisher's Exact test 
+to produce unreasonably small p-value < 10^-19^,
+wrongly suggesting strong dependence between data sets,
+while permutation testing by `shiftR` 
+does not detect any dependence (p-value > 0.1).
+
+```{r generateData}
+n = 1e6;
+
+sim = simulateBinary(n, corWithin = 0.99, corAcross = 0)
+
+offsets = getOffsetsUniform(n = n, npermute = 10e3)
+perm = shiftrPermBinary( sim$data1, sim$data2, offsets)
+
+message("Fisher exact test p-value: ", perm$fisherTest$p.value)
+message("Permutation p-value: ", perm$permPV)
+```
+
+# Enrichment testing for two sets of p-values (Permutation analysis on matched numeric data sets)
+
+Consider the following scenario.
+We have performed two genome-wide (or methylome-wide) association studies.
+Our goal is to test whether the top genomic locations indicated by one study
+are enriched with top locations indicated by another study.
+For simplicity, we first assume the studies were testing 
+the same set of genomic locations.
+
+As in previous example, 
+the p-values produced by each study are locally dependent
+(due to linkage disequilibrium).
+
+Let `sim` contain two simulated sets of p-values
+from the aforementioned studies.
+
+```{r seed2, echo=FALSE}
+set.seed(18090212)
+```
+
+```{r genPV}
+n = 1e6
+sim = simulatePValues(n, corWithin = 0.99, corAcross = 0)
+```
+
+The dependence of p-values within each study
+causes Fisher's exact test to indicate strong dependence
+between top results (using 0.10 p-value threshold).
+
+```{r pvfish}
+fisher.test(sim$data1 < 0.10, sim$data2 < 0.10)$p.value
+```
+
+## Enrichment testing with shiftR
+
+The function `enrichmentAnalysis` in our package
+conducts enrichment testing on two sets of locally correlated
+set of p-values (or other types of values, smaller being better).
+
+The code below test for enrichment between the p-value data sets
+using 10,000 circular permutations.
+The first data set is thresholded at 0.01, 0.05, and 0.10 percentiles,
+as is the second.
+
+```{r enr}
+enr = enrichmentAnalysis(
+    sim$data1,
+    sim$data2,
+    percentiles1 = c(0.01, 0.05, 0.10),
+    percentiles2 = c(0.01, 0.05, 0.10),
+    npermute = 10e3,
+    threads = 2)
+
+message('Enrichment p-value is: ', enr$overallPV[2]);
+```
+Note that unlike Fisher's exact test,
+circular permutation analysis is robust to local correlation of 
+the tests in each data set.
+
+
+The enrichment testing is performed for each
+pair of percentile thresholds as descripbed in [Section 2](#binary).
+
+The overall testing (detailed below) tests across all thresholds
+and does not require additional correction for multiple testing.
+The overall testing is conducted as follows.
+For each permutation and each threshold,
+we calculate the overlap of top genomic sites
+and calculate the Cramer's V score for the overlap.
+Then, the maximim V score (maxV) across possible thresholds is
+calculated the permutation. The distribution of maxV 
+under permutation is then compared to the maxV for the original data
+and the overall permutation p-value for enrichment is calculated.
+For overall test of depletion, minV equal to minimum V score is used.
+The overall two-sided test used maximum absolute value of V score.
+
+# Matching data sets by location
+
+In practice, the genomic locations at
+which the data in the data sets is available differs.
+This can happen, for example, it one data set has gene-wise information
+and the other has p-value for methylation sites.
+
+Genomic data sets can be easily matched by location with the
+`matchDatasets` function.
