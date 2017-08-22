@@ -10,6 +10,8 @@ export(
 	"getOffsetsAll",
 	"getOffsetsRandom",
 	"getOffsetsUniform",
+	"simulateNumeric",
+	"simulateBinary",
 	"singlePermutation"
 )
 importFrom("stats", 
