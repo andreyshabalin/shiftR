@@ -1,4 +1,17 @@
-parallelPermFun = function(offsets, leftSets, rghtSets, obs_zscr){
+# parallelPermFun = function(offsets, leftSets, rghtSets, obs_zscr){
+parallelPermFun = function(offsets, lefttemp, rghttemp, obs_zscr){
+
+    if( is.character(lefttemp) ) {
+        leftSets = readRDS(file = lefttemp)
+    } else {
+        leftSets = lefttemp;
+    }
+    if( is.character(rghttemp) ) {
+        rghtSets = readRDS(file = rghttemp)
+    } else {
+        rghtSets = rghttemp;
+    }    
+    
     # offsets = offsetList[[offsetsi]];
     library(shiftR);
     obs_cntE = matrix(NA_real_, length(leftSets), length(rghtSets));
@@ -55,8 +68,6 @@ enrichmentAnalysis = function(
         threads = 1){
     
     # extract values for easier work
-    # pvstats1 = data1[[4]];
-    # pvstats2 = data2[[4]];
     stopifnot( length(pvstats1) == length(pvstats2) );
     n = length(pvstats1);
     
@@ -153,29 +164,26 @@ enrichmentAnalysis = function(
     
     
     if( threads > 1){
+        
+        lefttemp = tempfile();
+        rghttemp = tempfile();
+        saveRDS(file = lefttemp, leftSets, compress = FALSE)
+        saveRDS(file = rghttemp, rghtSets, compress = FALSE)
+
         cl = makeCluster(threads);
-        # on.exit({stopCluster(cl);});
-        # message('leftSets size ', object.size(leftSets));
-        # message('exporting')
-        # # offsetList = clusterSplit(cl, offsets);
-        # clusterExport(cl, c('leftSets','rghtSets','obs_zscr'),  envir = environment());#,'offsetList'));
-        # message('exporting done')
-        # clusterApply( cl, seq_len(threads), identity);
-        # message('library(shiftR)')
-        # # clusterEvalQ(cl, {library(shiftR)});
-        # message('library(shiftR) done')
         clres = clusterApplyLB(
             cl,
             clusterSplit(cl, offsets),#seq_len(threads),#clusterSplit(cl, offsets), #offsetList, # seq_len(threads),
             parallelPermFun,
-            leftSets = leftSets,
-            rghtSets = rghtSets,
+            # leftSets = leftSets,
+            # rghtSets = rghtSets,
+            lefttemp = lefttemp,
+            rghttemp = rghttemp,
             obs_zscr = obs_zscr);
         stopCluster(cl);
-        # tmp = sys.on.exit();
-        # eval(tmp);
-        # rm(tmp);
-        # on.exit();
+        
+        file.remove(lefttemp);
+        file.remove(rghttemp);
         
         # combine the cluster results
         sumlist = lapply(names(clres[[1]]), 
@@ -183,10 +191,10 @@ enrichmentAnalysis = function(
         names(sumlist) = names(clres[[1]]);
     } else {
         sumlist = parallelPermFun(
-            offsets,
-            leftSets,
-            rghtSets,
-            obs_zscr);
+            offsets = offsets,
+            lefttemp = leftSets,
+            rghttemp = rghtSets,
+            obs_zscr = obs_zscr);
     }
     stopifnot(npermute == sumlist$npermute)
     
