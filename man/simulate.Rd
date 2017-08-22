@@ -1,5 +1,7 @@
 \name{simulate}
 \alias{simulateNumeric}
+\alias{simulateBinary}
+\alias{simulatePValues}
 \title{
 	Generate artificial data for tests and illustrations
 }
@@ -19,11 +21,8 @@ simulateBinary(n, corWithin, corAcross = 0)
         Correlation of adjacent observations within each data set.
     }
     \item{corAcross}{
-        Correlation of observation across data sets.
+        Correlation of observations across data sets.
     }
-    \item{sum12}{
-        Number of simultaneously active features in the data sets.
-    }    
 }
 
 \value{
@@ -34,8 +33,11 @@ simulateBinary(n, corWithin, corAcross = 0)
     having standard normal distribution. 
     
     The \code{simulateBinary} function generates data sets with 0/1 values
-    by thresholding the numeric data set from \code{simulateNumeric}.
+    by thresholding the numeric data sets from \code{simulateNumeric}.
     
+    The \code{simulatePValues} function generates data sets of p-values
+    by applying \code{\link[stats]{pnorm}} to the data sets 
+    from \code{simulateNumeric}.
 }
 \author{
 	Andrey A Shabalin \email{andrey.shabalin@gmail.com}
