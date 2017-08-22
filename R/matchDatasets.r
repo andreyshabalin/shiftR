@@ -138,23 +138,3 @@ matchDatasets = function(data1, data2, flank = 0){
     );
     return(result);
 }
-
-# system.time({ result = list( 
-#     data1 = data1[index>0L,], 
-#     data2 = data2[index,]
-#     # mch   = index
-# );})
-#  18.28
-
-# system.time({ result = list( 
-#     data1 = data.frame( lapply(data1, `[`, which(index>0L)), stringsAsFactors = FALSE, check.rows = FALSE),
-#     data2 = data.frame( lapply(data1, `[`, index[index>0L]), stringsAsFactors = FALSE, check.rows = FALSE)
-#     # mch   = index
-# );})
-# 13.66 
-
-
-
-
-
-
