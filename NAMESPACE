@@ -12,6 +12,7 @@ export(
 	"getOffsetsUniform",
 	"simulateNumeric",
 	"simulateBinary",
+	"simulatePValues",
 	"singlePermutation"
 )
 importFrom("stats", 
