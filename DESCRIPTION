@@ -1,6 +1,6 @@
 Package: shiftR
 Type: Package
-Title: Very fast circular permutation analysis on binary outcomes
+Title: Fast circular permutation analysis
 Version: 1.1.1
 Date: 2016-09-26
 Author: Andrey A Shabalin
@@ -14,3 +14,5 @@ BugReports: https://github.com/andreyshabalin/shiftR/issues
 URL: https://github.com/andreyshabalin/shiftR
 License: LGPL-3
 Imports: parallel
+Suggests: knitr, rmarkdown, pander, BiocStyle
+VignetteBuilder: knitr
