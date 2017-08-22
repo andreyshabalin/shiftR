@@ -18,7 +18,9 @@ export(
 importFrom("stats", 
     "fisher.test",
     "sd", 
-    "quantile")
+    "quantile",
+    "pnorm",
+    "rnorm")
 importFrom("parallel",
     "makeCluster", 
     "clusterSplit", 
