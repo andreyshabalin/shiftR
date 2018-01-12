@@ -1,24 +1,24 @@
 \name{enrichmentAnalysis}
 \alias{enrichmentAnalysis}
 \title{
-	Fast enrichment testing via circular permutations on non-binary outcomes.
+    Fast enrichment testing via circular permutations on non-binary outcomes.
 }
 \description{
-	This function performs enrichment analysis on
-	two sets of matching test statistics.
-	The circular permutation scheme accounts for 
-	possible local correlation of test statistcs.
-	The testing is performed using the quantile thresholds
-	provided for each data set.
-	
-	For every permutation the enrichment is measure with
-	Cramer's V coefficient. The maximum/minimum coefficient
-	across all considered thresholds is recorded.
-	It is then compared with the maximum/minimum coefficient
-	observed without permuting the data.
-	
-	For matching data sets calculated at different genomic locations
-	please use \code{\link{matchDatasets}}.
+    This function performs enrichment analysis on
+    two sets of matching test statistics.
+    The circular permutation scheme accounts for 
+    possible local correlation of test statistcs.
+    The testing is performed using the quantile thresholds
+    provided for each data set.
+    
+    For every permutation the enrichment is measure with
+    Cramer's V coefficient. The maximum/minimum coefficient
+    across all considered thresholds is recorded.
+    It is then compared with the maximum/minimum coefficient
+    observed without permuting the data.
+    
+    For matching data sets calculated at different genomic locations
+    please use \code{\link{matchDatasets}}.
 }
 \usage{
 enrichmentAnalysis(
@@ -63,21 +63,21 @@ enrichmentAnalysis(
 }
 
 \value{
-	Returns a list with:
-	\item{overallPV}{The p-values for the overall test across all thresholds. \cr
-	                The p-values are for enrichment, depletion, and two-sided test for both.}
-	\item{byThresholdPV}{The p-values for tests for each individual threshold. \cr
-	           The p-values provided for enrichment, depletion, and two-sided test.}
+    Returns a list with:
+    \item{overallPV}{The p-values for the overall test across all thresholds. \cr
+                    The p-values are for enrichment, depletion, and two-sided test for both.}
+    \item{byThresholdPV}{The p-values for tests for each individual threshold. \cr
+               The p-values provided for enrichment, depletion, and two-sided test.}
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \examples{
 ### Data size
 n = 1e5
 
 ### Generate vectors of test statistics with local correlation
-window = 1000;
+window = 1000
 pvstats1 = diff(cumsum(runif(n+window)), lag = window)
 pvstats2 = diff(cumsum(runif(n+window)), lag = window)
 

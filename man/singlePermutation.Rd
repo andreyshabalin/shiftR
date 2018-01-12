@@ -1,14 +1,14 @@
 \name{singlePermutation}
 \alias{singlePermutation}
 \title{
-	Count feature overlap under permutation (offset).
+    Count feature overlap under permutation (offset).
 }
 \description{
-	This function performs fast feature overlap 
-	count under a circular permutation.
-	The input data sets must be preprocessed with 
-	\code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
-	functions.}
+    This function performs fast feature overlap 
+    count under a circular permutation.
+    The input data sets must be preprocessed with 
+    \code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
+    functions.}
 \usage{
 singlePermutation(left, right, offset)
 }
@@ -27,10 +27,10 @@ singlePermutation(left, right, offset)
 }
 
 \value{
-	Returns count of feature overlap under a circular permutation (offset).
+    Returns count of feature overlap under a circular permutation (offset).
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \examples{
 ### Number of features

@@ -3,11 +3,11 @@
 \alias{simulateBinary}
 \alias{simulatePValues}
 \title{
-	Generate artificial data for tests and illustrations
+    Generate artificial data for tests and illustrations
 }
 \description{
-	These functions generate two artificial data sets
-	with local dependence of observations.
+    These functions generate two artificial data sets
+    with local dependence of observations.
 }
 \usage{
 simulateNumeric(n, corWithin, corAcross = 0)
@@ -26,7 +26,7 @@ simulateBinary(n, corWithin, corAcross = 0)
 }
 
 \value{
-	Returns the Cramer's V coefficient.
+    Returns the Cramer's V coefficient.
 }
 \note{
     The \code{simulateNumeric} function generates two data sets with elements
@@ -40,7 +40,7 @@ simulateBinary(n, corWithin, corAcross = 0)
     from \code{simulateNumeric}.
 }
 \author{
-	Andrey A Shabalin \email{andrey.shabalin@gmail.com}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
 n = 100000;

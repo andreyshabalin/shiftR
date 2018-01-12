@@ -1,19 +1,19 @@
 \name{matchDatasets}
 \alias{matchDatasets}
 \title{
-	Match two data sets by location
+    Match two data sets by location
 }
 \description{
     The goal of this function is to match records in the data sets
     for subsequent enrichment analysis.
 
-	For each record in the primary data set (\code{data1})
-	it finds the record in the auxiliary data set (\code{data1})
-	which overlap with it or lie within the flanking distance (\code{flank}).
-	If multiple such auxiliary record are found, 
-	we select the one with the center closest to
-	the center of the primary record.
-	If no such record is available, no matching is made for the primary record.
+    For each record in the primary data set (\code{data1})
+    it finds the record in the auxiliary data set (\code{data1})
+    which overlap with it or lie within the flanking distance (\code{flank}).
+    If multiple such auxiliary record are found, 
+    we select the one with the center closest to
+    the center of the primary record.
+    If no such record is available, no matching is made for the primary record.
 }
 \usage{
 matchDatasets(data1, data2, flank = 0)
@@ -40,19 +40,19 @@ matchDatasets(data1, data2, flank = 0)
 }
 
 \value{
-	Returns a list with matched data sets.
-	\item{data1}{The primary data sets without unmatched records.}
-	\item{data2}{The auxiliary data set records matching those in 
-	            \code{data1} above. \cr
-	            Note that some auxiliary records can get duplicated
-	            if they are the best match for
-	            multiple records in the primary data.}
+    Returns a list with matched data sets.
+    \item{data1}{The primary data sets without unmatched records.}
+    \item{data2}{The auxiliary data set records matching those in 
+                \code{data1} above. \cr
+                Note that some auxiliary records can get duplicated
+                if they are the best match for
+                multiple records in the primary data.}
 }
 \note{
     For a technical reason, the chromosome positions are assumed to be no greater than \code{1e9}.
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \examples{
 

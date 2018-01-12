@@ -1,16 +1,16 @@
 \name{shiftrPermBinary}
 \alias{shiftrPermBinary}
 \title{
-	Fast enrichment testing on binary outcomes via circular permutations.
+    Fast enrichment testing on binary outcomes via circular permutations.
 }
 \description{
-	This function performs very fast feature enrichment 
-	permutation testing between two binary data sets.
-	Circular permutations are used instead of simple permutations to 
-	preserve local dependence of test statistics.
-	The input data sets can be preprocessed with 
-	\code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
-	functions.
+    This function performs very fast feature enrichment 
+    permutation testing between two binary data sets.
+    Circular permutations are used instead of simple permutations to 
+    preserve local dependence of test statistics.
+    The input data sets can be preprocessed with 
+    \code{\link{shiftrPrepareLeft}} and \code{\link{shiftrPrepareRight}} 
+    functions.
 }
 \usage{
 shiftrPermBinary(
@@ -41,26 +41,26 @@ shiftrPermBinary(
 }
 
 \value{
-	Returns a list with:
-	\item{nfeatures}{Number of features in input data sets.}
-	\item{lfeatures}{Number of active features in the left data set.}
-	\item{rfeatures}{Number of active features in the right data set.}
-	\item{overlap}{Number of features simultaneously active in both data sets.}
-	\item{overlapUnderNull}{Expected value of \code{overlap} if input data sets were independent.}
-	\item{enrichment}{ Enrichment ratio, equal to \code{overlap / overlapUnderNull}}
-	\item{permPVenrich}{ Permutation p-value for enrichment (one-sided).}
-	\item{permPVdeplete}{ Permutation p-value for depletion (one-sided).}
-	\item{permPV}{ Permutation p-value for depletion (two-sided).}
-	\item{permZ}{Permutation z-statistic, 
-	            calculated by fitting normal distribution to the \code{overlap} 
-	            values under permutations. \cr
+    Returns a list with:
+    \item{nfeatures}{Number of features in input data sets.}
+    \item{lfeatures}{Number of active features in the left data set.}
+    \item{rfeatures}{Number of active features in the right data set.}
+    \item{overlap}{Number of features simultaneously active in both data sets.}
+    \item{overlapUnderNull}{Expected value of \code{overlap} if input data sets were independent.}
+    \item{enrichment}{ Enrichment ratio, equal to \code{overlap / overlapUnderNull}}
+    \item{permPVenrich}{ Permutation p-value for enrichment (one-sided).}
+    \item{permPVdeplete}{ Permutation p-value for depletion (one-sided).}
+    \item{permPV}{ Permutation p-value for depletion (two-sided).}
+    \item{permZ}{Permutation z-statistic, 
+                calculated by fitting normal distribution to the \code{overlap} 
+                values under permutations. \cr
                 Positive values indicate enrichment.}
-	\item{fisherTest}{Fisher exact test, as output by \code{\link[stats]{fisher.test}}}
-	\item{fisherMat}{Input 2x2 matrix for Fisher exact test.}
-	\item{overlapsPerm}{Vector of length \code{npermute} with \code{overlap} values under permutations.}
+    \item{fisherTest}{Fisher exact test, as output by \code{\link[stats]{fisher.test}}}
+    \item{fisherMat}{Input 2x2 matrix for Fisher exact test.}
+    \item{overlapsPerm}{Vector of length \code{npermute} with \code{overlap} values under permutations.}
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \seealso{
     This function essentially involves \code{npermute} calls of \code{\link{singlePermutation}} function

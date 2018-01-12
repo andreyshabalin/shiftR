@@ -4,17 +4,17 @@
 \alias{getOffsetsUniform}
 \alias{getNOffsetsMax}
 \title{
-	Generate Random or Uniformly Spaced Permutation Offsets
+    Generate Random or Uniformly Spaced Permutation Offsets
 }
 \description{
-	This functions generate offsets for permutation analysis 
-	with \code{\link{shiftrPermBinary}}. 
-	Random, uniformly spaced, and complete sets are available via 
-	\code{getOffsetsRandom}, \code{getOffsetsUniform}, and 
-	\code{getOffsetsAll} functions respectively.
-	
-	The function \code{getNOffestsMax} calculates 
-	the maximum number of permutations (given the margin).
+    This functions generate offsets for permutation analysis 
+    with \code{\link{shiftrPermBinary}}. 
+    Random, uniformly spaced, and complete sets are available via 
+    \code{getOffsetsRandom}, \code{getOffsetsUniform}, and 
+    \code{getOffsetsAll} functions respectively.
+    
+    The function \code{getNOffestsMax} calculates 
+    the maximum number of permutations (given the margin).
 }
 \usage{
 getOffsetsRandom(n, npermute, margin = 0.05)
@@ -35,17 +35,17 @@ getNOffsetsMax(n, margin)
     }
 }
 \value{
-	Returns a set of permutation offsets for use in \code{\link{shiftrPermBinary}} function. \cr
-	The set of offsets is 
-	\enumerate{
-	    \item random for \code{getOffsetsRandom}, 
-	    \item uniformly spaced for \code{getOffsetsUniform}, or 
-	    \item all possible for \code{getOffsetsAll}.
+    Returns a set of permutation offsets for use in \code{\link{shiftrPermBinary}} function. \cr
+    The set of offsets is 
+    \enumerate{
+        \item random for \code{getOffsetsRandom}, 
+        \item uniformly spaced for \code{getOffsetsUniform}, or 
+        \item all possible for \code{getOffsetsAll}.
     }
     The function \code{getNOffestsMax} returns the maximum number of permutations (given the margin).
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \examples{
 ### Number of features, permutations, and margin

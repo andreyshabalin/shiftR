@@ -3,15 +3,15 @@
 \alias{shiftrPrepareRight}
 
 \title{
-	Prepare data for fast circular permutation analysis.
+    Prepare data for fast circular permutation analysis.
 }
 \description{
     The concept of circular permutations
     is symmetric with respect to the input data sets.
-	The algorithm for circular permutation calculation is, however,
-	not symmetric with respect to two datasets and 
-	thus the required data preprocessing is also different.
-	For simplicity, we call the data sets 'left' and 'right'.
+    The algorithm for circular permutation calculation is, however,
+    not symmetric with respect to two datasets and 
+    thus the required data preprocessing is also different.
+    For simplicity, we call the data sets 'left' and 'right'.
 }
 \usage{
 shiftrPrepareLeft(set)
@@ -27,11 +27,12 @@ shiftrPrepareRight(set)
 }
 
 \value{
-	Returns objects of class \code{fcpLeft} and \code{fcpRight} respectively.
-	The returned objects are used in \code{\link{singlePermutation}} and \code{\link{shiftrPermBinary}} functions.
+    Returns objects of class \code{fcpLeft} and \code{fcpRight} respectively.
+    The returned objects are used in \code{\link{singlePermutation}} and 
+    \code{\link{shiftrPermBinary}} functions.
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \seealso{
  See code{\link{shiftrPermBinary}} function and the respective example.

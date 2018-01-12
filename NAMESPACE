@@ -1,31 +1,24 @@
 useDynLib(shiftR, .registration = TRUE)
 export(
-	"shiftrPrepareLeft",
-	"shiftrPrepareRight",
-	"shiftrPermBinary",
-	"cramerV",
-	"matchDatasets",
-	"enrichmentAnalysis",
-	"getNOffsetsMax",
-	"getOffsetsAll",
-	"getOffsetsRandom",
-	"getOffsetsUniform",
-	"simulateNumeric",
-	"simulateBinary",
-	"simulatePValues",
-	"singlePermutation"
+    "shiftrPrepareLeft",
+    "shiftrPrepareRight",
+    "shiftrPermBinary",
+    "cramerV",
+    "matchDatasets",
+    "enrichmentAnalysis",
+    "getNOffsetsMax",
+    "getOffsetsAll",
+    "getOffsetsRandom",
+    "getOffsetsUniform",
+    "simulateNumeric",
+    "simulateBinary",
+    "simulatePValues",
+    "singlePermutation"
 )
 importFrom("stats", 
-    "fisher.test",
-    "sd", 
-    "quantile",
-    "pnorm",
-    "rnorm")
+            "fisher.test", "sd", "quantile", "pnorm", "rnorm")
 importFrom("parallel",
-    "makeCluster", 
-    "clusterSplit", 
-    "stopCluster", 
-    "detectCores", 
-    "clusterApplyLB")
+            "makeCluster", "clusterSplit", 
+            "stopCluster", "detectCores", "clusterApplyLB")
 
 

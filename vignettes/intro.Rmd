@@ -61,7 +61,7 @@ while permutation testing by `shiftR`
 does not detect any dependence (p-value > 0.1).
 
 ```{r generateData}
-n = 1e6;
+n = 1e6
 
 sim = simulateBinary(n, corWithin = 0.99, corAcross = 0)
 
@@ -72,7 +72,8 @@ message("Fisher exact test p-value: ", perm$fisherTest$p.value)
 message("Permutation p-value: ", perm$permPV)
 ```
 
-# Enrichment testing for two sets of p-values (Permutation analysis on matched numeric data sets)
+# Enrichment testing for two sets of p-values \
+(Permutation analysis on matched numeric data sets)
 
 Consider the following scenario.
 We have performed two genome-wide (or methylome-wide) association studies.
@@ -125,7 +126,7 @@ enr = enrichmentAnalysis(
     npermute = 10e3,
     threads = 2)
 
-message('Enrichment p-value is: ', enr$overallPV[2]);
+message('Enrichment p-value is: ', enr$overallPV[2])
 ```
 Note that unlike Fisher's exact test,
 circular permutation analysis is robust to local correlation of 

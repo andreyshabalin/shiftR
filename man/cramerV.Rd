@@ -1,11 +1,11 @@
 \name{cramerV}
 \alias{cramerV}
 \title{
-	Calculate Cramer's V (phi) coefficient
+    Calculate Cramer's V (phi) coefficient
 }
 \description{
-	This functions calculates Cramer's V coefficient
-	for overlap of two binary data sets.
+    This functions calculates Cramer's V coefficient
+    for overlap of two binary data sets.
 }
 \usage{
 cramerV(sum12, sum1, sum2, len)
@@ -26,13 +26,13 @@ cramerV(sum12, sum1, sum2, len)
 }
 
 \value{
-	Returns the Cramer's V coefficient.
+    Returns the Cramer's V coefficient.
 }
 \note{
     The parameters can be single values or vectors.
 }
 \author{
-	Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{ashabalin@vcu.edu}
 }
 \examples{
 # Zero score for perfect independence
