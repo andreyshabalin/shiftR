@@ -21,10 +21,14 @@ simulateNumeric = function(n, corWithin, corAcross = 0){
 
 simulateBinary = function(n, corWithin, corAcross = 0){
     tmp = simulateNumeric(n, corWithin, corAcross)
-    return( list( data1 = as.integer(tmp$data1>0), data2 = as.integer(tmp$data2>0)) );
+    return(list( 
+                data1 = as.integer(tmp$data1>0),
+                data2 = as.integer(tmp$data2>0)));
 }
 
 simulatePValues = function(n, corWithin, corAcross = 0){
     tmp = simulateNumeric(n, corWithin, corAcross)
-    return( list( data1 = pnorm(tmp$data1), data2 = pnorm(tmp$data2)) );
+    return( list( 
+                data1 = pnorm(tmp$data1),
+                data2 = pnorm(tmp$data2)));
 }

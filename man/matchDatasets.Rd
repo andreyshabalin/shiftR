@@ -41,15 +41,20 @@ matchDatasets(data1, data2, flank = 0)
 
 \value{
     Returns a list with matched data sets.
-    \item{data1}{The primary data sets without unmatched records.}
-    \item{data2}{The auxiliary data set records matching those in 
-                \code{data1} above. \cr
-                Note that some auxiliary records can get duplicated
-                if they are the best match for
-                multiple records in the primary data.}
+    \item{data1}{
+        The primary data sets without unmatched records.
+    }
+    \item{data2}{
+        The auxiliary data set records matching those in 
+        \code{data1} above. \cr
+        Note that some auxiliary records can get duplicated
+        if they are the best match for
+        multiple records in the primary data.
+    }
 }
 \note{
-    For a technical reason, the chromosome positions are assumed to be no greater than \code{1e9}.
+    For a technical reason, the chromosome positions are assumed to be
+    no greater than \code{1e9}.
 }
 \author{
     Andrey A Shabalin \email{ashabalin@vcu.edu}

@@ -91,7 +91,7 @@ percentiles2 = c(0.001, 0.01, 0.03, 0.05, 0.1)
 
 # The offset margin
 
-margin = 0.05;
+margin = 0.05
 
 # Set the number of permutations
 # to the maximum

@@ -43,8 +43,8 @@ simulateBinary(n, corWithin, corAcross = 0)
     Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
-n = 100000;
-sim = simulateNumeric(n, 0.5, 0.3);
+n = 100000
+sim = simulateNumeric(n, 0.5, 0.3)
 
 # Means should be close to 0 (zero)
 mean(sim$data1)

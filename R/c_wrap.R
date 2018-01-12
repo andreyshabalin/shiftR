@@ -2,11 +2,11 @@ bitSum = function(x){
     .Call("CbitSum", x, PACKAGE = "shiftR");
 }
 
-bitSumAnd = function(x,y){
+bitSumAnd = function(x, y){
     .Call("CbitSumAnd", x, y, PACKAGE = "shiftR");
 }
 
-bitSumOr = function(x,y){
+bitSumOr = function(x, y){
     .Call("CbitSumOr", x, y, PACKAGE = "shiftR");
 }
 

@@ -24,11 +24,13 @@ getOffsetsRandom = function(n, npermute, margin = 0.05){
     stopifnot( margin < 0.5 );
     stopifnot( is.numeric(n) );
     stopifnot( is.numeric(npermute) );
+    npermute = floor(npermute);
     maxo = getNOffsetsMax(n, margin);
     if( npermute < maxo) {
-        offsets = sample.int(n = maxo, size = floor(npermute), replace = FALSE) + (minOffset(n, margin)-1L);
+        offsets = sample.int(n = maxo, size = npermute, replace = FALSE) +
+                    (minOffset(n, margin) - 1L);
     } else {
-        offsets = getOffsetsAll(n, margin)
+        offsets = getOffsetsAll(n, margin);
     }
     return( offsets );
 }
