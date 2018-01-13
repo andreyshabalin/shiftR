@@ -1,6 +1,6 @@
 Package: shiftR
 Type: Package
-Title: Fast circular permutation analysis
+Title: Fast Enrichment Analysis via Circular Permutations
 Version: 1.2
 Date: 2018-01-11
 Author: Andrey A Shabalin

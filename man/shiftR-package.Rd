@@ -2,7 +2,7 @@
 \alias{shiftR-package}
 \docType{package}
 \title{
-    Fast Enrichment Analysis via Circular Permutations of binary outcomes
+    Fast Enrichment Analysis via Circular Permutations
 }
 \description{
     Fast enrichment analysis for locally correlated statistics
