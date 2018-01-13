@@ -5,7 +5,7 @@ Version: 1.2
 Date: 2018-01-11
 Authors@R: c(person("Andrey A", "Shabalin",
                     role = c("aut", "cre"),
-                    email = "ashabalin@vcu.edu",
+                    email = "andrey.shabalin@gmail.com",
                     comment = c(ORCID = "0000-0003-0309-6821")),
             person("Edwin J C G", "van den Oord",
                     email = "ejvandenoord@vcu.edu",
