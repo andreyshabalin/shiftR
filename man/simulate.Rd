@@ -3,7 +3,7 @@
 \alias{simulateBinary}
 \alias{simulatePValues}
 \title{
-    Generate artificial data for tests and illustrations
+    Generate Artificial Data for Tests and Illustrations
 }
 \description{
     These functions generate two artificial data sets
@@ -36,7 +36,7 @@ simulateBinary(n, corWithin, corAcross = 0)
     by thresholding the numeric data sets from \code{simulateNumeric}.
     
     The \code{simulatePValues} function generates data sets of p-values
-    by applying \code{\link[stats]{pnorm}} to the data sets 
+    by applying \code{\link[stats:Normal]{pnorm}} to the data sets 
     from \code{simulateNumeric}.
 }
 \author{

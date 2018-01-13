@@ -1,7 +1,7 @@
 \name{cramerV}
 \alias{cramerV}
 \title{
-    Calculate Cramer's V (phi) coefficient
+    Calculate Cramer's V (phi) Coefficient
 }
 \description{
     This functions calculates Cramer's V coefficient
@@ -32,7 +32,7 @@ cramerV(sum12, sum1, sum2, len)
     The parameters can be single values or vectors.
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
 # Zero score for perfect independence

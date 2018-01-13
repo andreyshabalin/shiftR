@@ -1,9 +1,8 @@
 \name{shiftrPrepare}
 \alias{shiftrPrepareLeft}
 \alias{shiftrPrepareRight}
-
 \title{
-    Prepare data for fast circular permutation analysis.
+    Prepare Data for Fast Circular Permutation Analysis
 }
 \description{
     The concept of circular permutations
@@ -32,12 +31,11 @@ shiftrPrepareRight(set)
     \code{\link{shiftrPermBinary}} functions.
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \seealso{
- See code{\link{shiftrPermBinary}} function and the respective example.
+    See code{\link{shiftrPermBinary}} function and the respective example.
 }
-%\references{}
 \examples{
 ### Number of features
 nf = 1e6

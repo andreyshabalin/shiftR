@@ -1,7 +1,7 @@
 \name{enrichmentAnalysis}
 \alias{enrichmentAnalysis}
 \title{
-    Fast enrichment testing via circular permutations on non-binary outcomes.
+    Fast Enrichment Testing via Circular Permutations on Non-Binary Outcomes
 }
 \description{
     This function performs enrichment analysis on
@@ -40,7 +40,8 @@ enrichmentAnalysis(
         The statistics must be p-value like, i.e. smaller is better.
     }
     \item{percentiles1}{
-        These quantile thresholds are used to cut off top results in the primary data set
+        These quantile thresholds are used to cut off top results 
+        in the primary data set
         for matching with the top results in the auxiliary. \cr
         Can be omitted if the vector \code{pvstats1} is binary.
     }
@@ -52,8 +53,10 @@ enrichmentAnalysis(
     }
     \item{margin}{
         The minimum offset in the circular permutation to consider. \cr
-        Can be a fraction of total number of values or an integer count of values. \cr
-        Passed in the call of \code{\link{getOffsetsRandom}} for generation of offsets.
+        Can be a fraction of total number of values or
+        an integer count of values. \cr
+        Passed in the call of \code{\link{getOffsetsRandom}} for
+        generation of offsets.
     }
     \item{threads}{
         The number of CPU cores to use for calculations. \cr
@@ -64,13 +67,17 @@ enrichmentAnalysis(
 
 \value{
     Returns a list with:
-    \item{overallPV}{The p-values for the overall test across all thresholds. \cr
-                    The p-values are for enrichment, depletion, and two-sided test for both.}
-    \item{byThresholdPV}{The p-values for tests for each individual threshold. \cr
-               The p-values provided for enrichment, depletion, and two-sided test.}
+    \item{overallPV}{
+        The p-values for the overall test across all thresholds. \cr
+        The p-values are for enrichment, depletion, and two-sided test for both.
+    }
+    \item{byThresholdPV}{
+        The p-values for tests for each individual threshold. \cr
+        The p-values provided for enrichment, depletion, and two-sided test.
+    }
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
 ### Data size

@@ -31,21 +31,24 @@ getNOffsetsMax(n, margin)
         The number of offsets to be generated (number of permutations).
     }
     \item{margin}{
-        Offsets by less than \code{margin*n} or more than \code{(1-margin)*n} are not generated.
+        Offsets by less than \code{margin*n} or 
+        more than \code{(1-margin)*n} are not generated.
     }
 }
 \value{
-    Returns a set of permutation offsets for use in \code{\link{shiftrPermBinary}} function. \cr
+    Returns a set of permutation offsets for use in 
+    \code{\link{shiftrPermBinary}} function. \cr
     The set of offsets is 
     \enumerate{
         \item random for \code{getOffsetsRandom}, 
         \item uniformly spaced for \code{getOffsetsUniform}, or 
         \item all possible for \code{getOffsetsAll}.
     }
-    The function \code{getNOffestsMax} returns the maximum number of permutations (given the margin).
+    The function \code{getNOffestsMax} returns the 
+    maximum number of permutations (given the margin).
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
 ### Number of features, permutations, and margin

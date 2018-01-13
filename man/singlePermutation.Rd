@@ -1,7 +1,7 @@
 \name{singlePermutation}
 \alias{singlePermutation}
 \title{
-    Count feature overlap under permutation (offset).
+    Count Feature Overlap Under a Permutation
 }
 \description{
     This function performs fast feature overlap 
@@ -27,10 +27,10 @@ singlePermutation(left, right, offset)
 }
 
 \value{
-    Returns count of feature overlap under a circular permutation (offset).
+    Returns count of feature overlap under a circular permutation.
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
 ### Number of features

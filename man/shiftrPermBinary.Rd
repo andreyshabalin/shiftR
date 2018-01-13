@@ -1,7 +1,7 @@
 \name{shiftrPermBinary}
 \alias{shiftrPermBinary}
 \title{
-    Fast enrichment testing on binary outcomes via circular permutations.
+    Fast Enrichment Testing on Binary Outcomes via Circular Permutations
 }
 \description{
     This function performs very fast feature enrichment 
@@ -91,7 +91,7 @@ shiftrPermBinary(
     }
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \seealso{
     This function essentially involves \code{npermute} calls of

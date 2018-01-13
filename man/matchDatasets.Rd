@@ -1,7 +1,7 @@
 \name{matchDatasets}
 \alias{matchDatasets}
 \title{
-    Match two data sets by location
+    Match Two Data Sets by Location
 }
 \description{
     The goal of this function is to match records in the data sets
@@ -57,7 +57,7 @@ matchDatasets(data1, data2, flank = 0)
     no greater than \code{1e9}.
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \examples{
 

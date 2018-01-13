@@ -20,10 +20,11 @@
     }
 }
 \author{
-    Andrey A Shabalin \email{ashabalin@vcu.edu}
+    Andrey A Shabalin \email{andrey.shabalin@gmail.com}
 }
 \keyword{ shiftR }
 \seealso{
     See the main function \code{\link{shiftrPermBinary}} for more info.
-    % Run \code{browseVignettes("filematrix")} for the list of vignettes.
+    
+    Run \code{browseVignettes("shiftR")} for the vignette.
 }
