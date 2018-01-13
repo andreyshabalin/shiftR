@@ -26,7 +26,7 @@ getOffsetsRandom = function(n, npermute, margin = 0.05){
     stopifnot( is.numeric(npermute) );
     npermute = floor(npermute);
     maxo = getNOffsetsMax(n, margin);
-    if( npermute < maxo) {
+    if( npermute < maxo){
         offsets = sample.int(n = maxo, size = npermute, replace = FALSE) +
                     (minOffset(n, margin) - 1L);
     } else {
@@ -41,8 +41,8 @@ getOffsetsUniform = function(n, npermute, margin = 0.05){
     stopifnot( margin < 0.5 );
     stopifnot( is.numeric(n) );
     stopifnot( is.numeric(npermute) );
-    fr = minOffset(n, margin)
-    to = maxOffset(n, margin)
+    fr = minOffset(n, margin);
+    to = maxOffset(n, margin);
     stopifnot( npermute <= to - fr + 1);
     offsets = as.integer(seq.int(from = fr, to = to, length.out = npermute));
     return( offsets );

@@ -16,7 +16,7 @@ simulateNumeric = function(n, corWithin, corAcross = 0){
     if(corAcross != 0){
         data2 = data1 * corAcross + data2 * sqrt(1 - corAcross^2);
     }
-    return( list( data1 = data1, data2 = data2) );
+    return(list( data1 = data1, data2 = data2));
 }
 
 simulateBinary = function(n, corWithin, corAcross = 0){

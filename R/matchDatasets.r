@@ -87,7 +87,7 @@ matchDatasets = function(data1, data2, flank = 0){
             data1l = data1l[ord];
             data1r = data1r[ord];
             data1  = data1[ord,];
-            rm(ord)
+            rm(ord);
         }
         rm(data1c);
     }
@@ -113,7 +113,7 @@ matchDatasets = function(data1, data2, flank = 0){
         
         # Closest ally for multiple overlaps
         set = which((ind2-ind1)>1);
-        if(length(set)>0L){
+        if( length(set) > 0L ){
             data1c = data1l[set] + data1r[set];
             data2c = data2l      + data2r;
             indL = findInterval(data1c, data2c);
@@ -140,8 +140,6 @@ matchDatasets = function(data1, data2, flank = 0){
         data2 = data.frame(
                     lapply(data2, `[`, index[index>0L]),
                     stringsAsFactors = FALSE,
-                    check.rows = FALSE)
-        # mch = index
-    );
+                    check.rows = FALSE));
     return(result);
 }
