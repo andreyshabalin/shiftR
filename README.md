@@ -1,4 +1,4 @@
-# shiftR: Very fast enrichment analysis via circular permutations
+# shiftR: Fast Enrichment Analysis via Circular Permutations
 
 Fast enrichment analysis for locally correlated statistics
 via circular permutations.
@@ -8,14 +8,26 @@ with efficient correction for multiple testing.
 
 ## Installation
 
-To install shiftR directly from GitHub run
+### Install CRAN Version
+
+To install 
+[CRAN version](https://cran.r-project.org/web/packages/shiftR/index.html)
+of `shiftR`.
+
+```
+install.packages("shiftR")
+```
+
+### Install GitHub Version
+
+To install `shiftR` directly from GitHub run
 
 ```
 devtools::install_github("andreyshabalin/shiftR")
 ```
 
-If `devtools` package is missing, run
+If `devtools` package is missing, it can be installed with
 
 ```
-install.packages('devtools')
+install.packages("devtools")
 ```
