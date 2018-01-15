@@ -11,8 +11,8 @@ with efficient correction for multiple testing.
 ### Install CRAN Version
 
 To install the
-[CRAN version](https://cran.r-project.org/web/packages/shiftR/index.html)
-of `shiftR`.
+[CRAN version](https://CRAN.R-project.org/package=shiftR)
+of `shiftR`, run
 
 ```
 install.packages("shiftR")
@@ -20,7 +20,7 @@ install.packages("shiftR")
 
 ### Install GitHub Version
 
-To install `shiftR` directly from GitHub run
+To install `shiftR` directly from GitHub, run
 
 ```
 devtools::install_github("andreyshabalin/shiftR")
