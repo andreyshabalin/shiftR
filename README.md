@@ -10,7 +10,7 @@ with efficient correction for multiple testing.
 
 ### Install CRAN Version
 
-To install 
+To install the
 [CRAN version](https://cran.r-project.org/web/packages/shiftR/index.html)
 of `shiftR`.
 
