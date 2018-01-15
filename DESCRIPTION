@@ -19,5 +19,5 @@ BugReports: https://github.com/andreyshabalin/shiftR/issues
 URL: https://github.com/andreyshabalin/shiftR
 License: LGPL-3
 Imports: parallel
-Suggests: knitr, rmarkdown, pander, BiocStyle
+Suggests: knitr, rmarkdown, pander
 VignetteBuilder: knitr

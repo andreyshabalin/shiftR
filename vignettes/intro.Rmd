@@ -1,12 +1,13 @@
 ---
-title: "Overview of shiftR"
+title: "Overview of shiftR Package"
 date: "`r Sys.Date()`"
 output:
-  BiocStyle::html_document:
-    toc: true # table of content true
+    html_document:
+        theme: readable
+        toc: true # table of content true
 vignette: >
-  %\VignetteIndexEntry{Overview of shiftR}
-  %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteIndexEntry{Overview of shiftR package}
+    %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r loadKnitr, echo=FALSE}
