@@ -23,11 +23,7 @@ install.packages("shiftR")
 To install `shiftR` directly from GitHub, run
 
 ```
+if(!requireNamespace("devtools", quietly = TRUE))
+    install.packages("devtools")
 devtools::install_github("andreyshabalin/shiftR")
-```
-
-If `devtools` package is missing, it can be installed with
-
-```
-install.packages("devtools")
 ```
