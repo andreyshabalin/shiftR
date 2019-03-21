@@ -18,7 +18,7 @@ static inline int popcount( unsigned int i ){
         2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,
         2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,
         3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,4,5,5,6,5,6,6,7,5,6,6,7,6,7,7,8};
-    return(  
+    return(
         bitsums[ i      & 0xFF] + 
         bitsums[(i>>8)  & 0xFF] +
         bitsums[(i>>16) & 0xFF] +
@@ -39,7 +39,7 @@ SEXP CbitSum(SEXP x){
     int *px = INTEGER(x);
     
     int sum = 0;
-    for( int i=0; i<n; i++) {
+    for( int i=0; i<n; i++ ){
         sum += NumberOfSetBits(px[i]);
     }
     SEXP rez = PROTECT(allocVector(INTSXP, 1)); 
@@ -58,7 +58,7 @@ SEXP CbitSumAnd(SEXP x, SEXP y){
     int *py = INTEGER(y);
     
     int sum = 0;
-    for( int i=0; i<n; i++) {
+    for( int i=0; i<n; i++ ){
         sum += popcount(px[i] & py[i]);
     }
     SEXP rez = PROTECT(allocVector(INTSXP, 1)); 
@@ -72,12 +72,12 @@ SEXP CbitSumOr(SEXP x, SEXP y){
     int n1 = length(x);
     y = PROTECT(coerceVector(y, INTSXP));
     int n2 = length(x);
-    int n = n1>n2 ? n2 : n1;
+    int n = (n1>n2) ? n2 : n1;
     int *px = INTEGER(x);
     int *py = INTEGER(y);
     
     int sum = 0;
-    for( int i=0; i<n; i++) {
+    for( int i=0; i<n; i++ ){
         sum += popcount(px[i] | py[i]);
     }
     SEXP rez = PROTECT(allocVector(INTSXP, 1)); 
@@ -86,7 +86,7 @@ SEXP CbitSumOr(SEXP x, SEXP y){
     return(rez);
 }
 
-SEXP CbitSumAndShifted(SEXP x, SEXP y, SEXP yoffset) {
+SEXP CbitSumAndShifted(SEXP x, SEXP y, SEXP yoffset){
     x = PROTECT(coerceVector(x, INTSXP));
     int n1 = length(x);
     y = PROTECT(coerceVector(y, INTSXP));
@@ -99,10 +99,10 @@ SEXP CbitSumAndShifted(SEXP x, SEXP y, SEXP yoffset) {
     int offset = INTEGER(yoffset)[0];
     
     int sum = 0;
-    for( int i=0; i<offset; i++) {
+    for( int i=0; i<offset; i++ ){
         sum += popcount(px[i-offset+n] & py[i]);
     }
-    for( int i=offset; i<n; i++) {
+    for( int i=offset; i<n; i++ ){
         sum += popcount(px[i-offset  ] & py[i]);
     }
     
@@ -112,11 +112,11 @@ SEXP CbitSumAndShifted(SEXP x, SEXP y, SEXP yoffset) {
     return(rez);
 }
 
-SEXP CbitSumAndYinX(SEXP x, SEXP y, SEXP xstart) {
+SEXP CbitSumAndYinX(SEXP x, SEXP y, SEXP xstart){
     x = PROTECT(coerceVector(x, INTSXP));
     int n1 = length(x);
     y = PROTECT(coerceVector(y, INTSXP));
-    int n = length(y);
+    int n  = length(y);
     xstart = PROTECT(coerceVector(xstart, INTSXP));
     int start = INTEGER(xstart)[0];
     
@@ -129,8 +129,8 @@ SEXP CbitSumAndYinX(SEXP x, SEXP y, SEXP xstart) {
     int *py = INTEGER(y);
     
     int sum = 0;
-    for( int i=0; i<n; i++) {
-    sum += popcount(px[i+start] & py[i]);
+    for( int i=0; i<n; i++ ){
+        sum += popcount(px[i+start] & py[i]);
     }
     
     SEXP rez = PROTECT(allocVector(INTSXP, 1)); 
@@ -140,15 +140,15 @@ SEXP CbitSumAndYinX(SEXP x, SEXP y, SEXP xstart) {
 }
 
 static R_CallMethodDef callMethods[] = {
-    {"CbitSum",					(DL_FUNC) &CbitSum, 1},
-    {"CbitSumAnd",				(DL_FUNC) &CbitSumAnd, 2},
-    {"CbitSumOr",				(DL_FUNC) &CbitSumOr, 2},
+    {"CbitSum",				(DL_FUNC) &CbitSum, 1},
+    {"CbitSumAnd",			(DL_FUNC) &CbitSumAnd, 2},
+    {"CbitSumOr",			(DL_FUNC) &CbitSumOr, 2},
     {"CbitSumAndShifted",	(DL_FUNC) &CbitSumAndShifted, 3},
     {"CbitSumAndYinX",		(DL_FUNC) &CbitSumAndYinX, 3},
     {NULL, NULL, 0}
 };
 
-void R_init_shiftR(DllInfo *info)	{
+void R_init_shiftR(DllInfo *info){
     R_registerRoutines(info, NULL, callMethods, NULL, NULL);
     R_useDynamicSymbols(info, FALSE);
 }
