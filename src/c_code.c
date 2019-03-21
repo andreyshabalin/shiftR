@@ -120,7 +120,7 @@ SEXP CbitSumAndYinX(SEXP x, SEXP y, SEXP xstart){
     xstart = PROTECT(coerceVector(xstart, INTSXP));
     int start = INTEGER(xstart)[0];
     
-    if(( start < 0 ) | ( n1 < start + n )){
+    if(( start < 0 ) || ( n1 < start + n )){
         UNPROTECT(3);
         return R_NilValue;
     }
