@@ -140,11 +140,11 @@ SEXP CbitSumAndYinX(SEXP x, SEXP y, SEXP xstart){
 }
 
 static R_CallMethodDef callMethods[] = {
-    {"CbitSum",				(DL_FUNC) &CbitSum, 1},
-    {"CbitSumAnd",			(DL_FUNC) &CbitSumAnd, 2},
-    {"CbitSumOr",			(DL_FUNC) &CbitSumOr, 2},
-    {"CbitSumAndShifted",	(DL_FUNC) &CbitSumAndShifted, 3},
-    {"CbitSumAndYinX",		(DL_FUNC) &CbitSumAndYinX, 3},
+    {"CbitSum",           (DL_FUNC) &CbitSum, 1},
+    {"CbitSumAnd",        (DL_FUNC) &CbitSumAnd, 2},
+    {"CbitSumOr",         (DL_FUNC) &CbitSumOr, 2},
+    {"CbitSumAndShifted", (DL_FUNC) &CbitSumAndShifted, 3},
+    {"CbitSumAndYinX",    (DL_FUNC) &CbitSumAndYinX, 3},
     {NULL, NULL, 0}
 };
 
