@@ -53,7 +53,7 @@ SEXP CbitSumAnd(SEXP x, SEXP y){
     int n1 = length(x);
     y = PROTECT(coerceVector(y, INTSXP));
     int n2 = length(x);
-    int n = n1>n2 ? n2 : n1;
+    int n = (n1>n2) ? n2 : n1;
     int *px = INTEGER(x);
     int *py = INTEGER(y);
     
@@ -91,7 +91,7 @@ SEXP CbitSumAndShifted(SEXP x, SEXP y, SEXP yoffset){
     int n1 = length(x);
     y = PROTECT(coerceVector(y, INTSXP));
     int n2 = length(x);
-    int n = n1>n2 ? n2 : n1;
+    int n = (n1>n2) ? n2 : n1;
     int *px = INTEGER(x);
     int *py = INTEGER(y);
     yoffset = PROTECT(coerceVector(yoffset, INTSXP));
